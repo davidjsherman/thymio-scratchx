@@ -16,6 +16,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'src/fixture.js',
+      'thymio_extension.js',
       'src/**/*.js',
       'spec/**/*spec.js'
     ],
