@@ -1,5 +1,5 @@
-const ASEBAHTTPURL = 'http://localhost:3000/';
-const THYMIOURL = ASEBAHTTPURL + 'nodes/thymio-II';
+var ASEBAHTTPURL = 'http://localhost:3000/';
+var THYMIOURL = ASEBAHTTPURL + 'nodes/thymio-II';
 
 describe("an ajax request for the node list", function(){
 
@@ -21,7 +21,7 @@ describe("an ajax request for the node list", function(){
     beforeEach(function(done) {
 	jasmine.Ajax.install();
 
-	jQuery.ajax({
+	$.ajax({
             url: ASEBAHTTPURL + 'nodes',
             dataType: 'json',
             success: function(data) {
@@ -52,8 +52,13 @@ describe("an ajax request for the node list", function(){
 	done();
     });
 
+    it("has the correct content type", function(done) {
+	expect(request.getResponseHeader('Content-Type')).toEqual('application/json');
+	done();
+    });
+
     it("returns the correct mocked node list", function(done) {
-	expect(request.data()).toEqual(responses.success);
+	expect(request.responseValue()).toEqual(responses.success.responseText);
 	done();
     });
 });
