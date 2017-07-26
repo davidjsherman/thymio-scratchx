@@ -1,3 +1,4 @@
 new (function() {
-    require('./random_wait_extension');
+    var ext = require('./random_wait_extension');
+    ext.register();
 })();

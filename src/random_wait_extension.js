@@ -29,5 +29,7 @@
     };
 
     // Register the extension
-    ScratchExtensions.register('Random wait extension', descriptor, ext);
+    ext.register = function() {
+	ScratchExtensions.register('Random wait extension', descriptor, ext);
+    }
 };
